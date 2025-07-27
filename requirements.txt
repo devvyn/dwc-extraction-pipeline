@@ -1,0 +1,9 @@
+python-dotenv
+pytesseract
+pillow
+pandas
+pyyaml
+openai
+opencv-python-headless
+pytest
+regex
