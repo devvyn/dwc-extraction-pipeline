@@ -7,3 +7,5 @@ def test_extract_fields():
     Collected by: Smith"""
     fields = extract_fields(txt)
     assert fields.get('scientificName') == 'Achillea millefolium'
+    assert fields.get('eventDate') == '1982-07-23'
+    assert fields.get('recordedBy') == 'Smith'
