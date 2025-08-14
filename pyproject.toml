@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "dwc-extraction-pipeline"
+version = "0.1.0"
+description = "Darwin Core OCR Pipeline Starter"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "python-dotenv",
+    "pillow",
+    "pandas",
+    "pyyaml",
+    "openai",
+    "pytest",
+    "regex",
+    "pytesseract",
+]
