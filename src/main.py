@@ -10,6 +10,8 @@ from src.image_preprocess import preprocess_image
 from src.field_extractor import extract_fields
 from src.validator import validate_fields
 
+OCR_THRESHOLD = Config.OCR_THRESHOLD
+
 INPUT_DIR = Path('input')
 OUTPUT_DIR = Path('output/ocr_texts')
 STATUS_FILE = Path('output/status.csv')
@@ -43,7 +45,7 @@ def process_image(img_path: Path):
     result = run_tesseract(pre_path)
     result['source'] = 'tesseract'
 
-    if result['confidence'] < Config.OCR_THRESHOLD:
+    if result['confidence'] < OCR_THRESHOLD:
         print(f'Low confidence ({result["confidence"]:.2f}) → OpenAI Vision fallback.')
         oa_result = run_openai_vision(pre_path)
         if oa_result.get('text'):
