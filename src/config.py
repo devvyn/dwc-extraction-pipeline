@@ -7,3 +7,4 @@ load_dotenv()
 class Config:
     OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
     MODE = os.getenv('APP_MODE', 'local')
+    OCR_THRESHOLD = float(os.getenv('OCR_THRESHOLD', 0.85))
