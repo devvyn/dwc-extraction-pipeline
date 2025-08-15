@@ -29,7 +29,12 @@ uv run python -m src.main
 
 ### Input and output
 Place specimen images in the `input/` directory.
-OCR output is saved to `output/ocr_texts/` with processing metadata in `output/status.csv`.
+Preprocessed images are written to `output/preprocessed/`.
+OCR output is saved to `output/ocr_texts/` with one JSON file per engine
+(`*_tesseract.json`, `*_openai.json`). The file `output/status.csv` tracks
+progress for each processing step (existence, preprocessing, each OCR method,
+and field extraction) so runs are idempotent and resumable. To force redoing a
+step, pass it via `--force`, e.g. `uv run python -m src.main --force openai`.
 Extracted Darwin Core fields are written to `output/dwc_output/`.
 
 Dependencies are declared in `pyproject.toml`. To export a pinned `requirements.txt` run:
